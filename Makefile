@@ -6,7 +6,7 @@
 #    By: apita-da <apita-da@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/06 12:51:38 by apita-da          #+#    #+#              #
-#    Updated: 2021/04/06 16:36:42 by apita-da         ###   ########.fr        #
+#    Updated: 2021/04/13 13:44:48 by apita-da         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ _IPURPLE	=	\x1b[45m
 _ICYAN		=	\x1b[46m
 _IWHITE		=	\x1b[47m
 
-SRCS	=	ft_strlen.s	
-			# ft_strcpy.s	\
+SRCS	=	ft_strlen.s	\
+			ft_strcpy.s	\
 			# ft_strcmp.s	\
 			# ft_write.s	\
 			# ft_read.s	\

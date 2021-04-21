@@ -2,14 +2,12 @@ section .text
 	global _ft_strlen
 
 _ft_strlen:
-	mov		rax, 0
-
-
-loop:
-	cmp		byte [rdi + rax] , 0
-	je		ret		
-	inc		rax
-	jmp		loop
-
-ret:
-	ret
+			xor		rax, rax			; i = 0
+			jmp		compare
+increment:
+			inc		rax					; i++
+compare:
+			cmp		BYTE [rdi + rax], 0	; str[i] == 0
+			jne		increment
+done:
+			ret							; return i
