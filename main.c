@@ -6,7 +6,7 @@
 /*   By: apita-da <apita-da@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:53:07 by apita-da          #+#    #+#             */
-/*   Updated: 2021/04/13 13:46:40 by apita-da         ###   ########.fr       */
+/*   Updated: 2021/05/24 14:47:03 by apita-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,61 +58,59 @@ int 	main (int argc, char **argv)
 	free(dst);
 	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 
-	// printf("\033[31m <---------------------------------TEST FT_STRCMP---------------------------------------------->\n");
-	// char *s1 = "holi";
-	// char *s2 = "holi";
-	// printf("S1: \"%s\" S2 \"%s\"\n", s1, s2);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
-	// printf("   strcmp: %d\n", strcmp(s1, s2));
+	printf("\033[31m <---------------------------------TEST FT_STRCMP---------------------------------------------->\n");
+	char *s1 = "holi";
+	char *s2 = "holi";
+	printf("\033[35m S1: \"%s\" S2: \"%s\"\n", s1, s2);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("\033[34m    strcmp: %d\n", strcmp(s1, s2));
 
-	// s1 = "hol";
-	// s2 = "holi";
-	// printf("S1: \"%s\" S2 \"%s\"\n", s1, s2);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
-	// printf("   strcmp: %d\n", strcmp(s1, s2));
+	s1 = "hol";
+	s2 = "holi";
+	printf("\033[35m S1: \"%s\" S2 \"%s\"\n", s1, s2);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("\033[34m   strcmp: %d\n", strcmp(s1, s2));
 
-	// s1 = "";
-	// s2 = "holi";
-	// printf("S1: \"%s\" S2 \"%s\"\n", s1, s2);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
-	// printf("   strcmp: %d\n", strcmp(s1, s2));
+	s1 = "";
+	s2 = "holi";
+	printf("\033[35m S1: \"%s\" S2 \"%s\"\n", s1, s2);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("\033[34m   strcmp: %d\n", strcmp(s1, s2));
 
-	// s1 = "holi";
-	// s2 = "";
-	// printf("S1: \"%s\" S2 \"%s\"\n", s1, s2);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
-	// printf("   strcmp: %d\n", strcmp(s1, s2));
+	s1 = "holi";
+	s2 = "";
+	printf("\033[35m S1: \"%s\" S2 \"%s\"\n", s1, s2);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("\033[34m   strcmp: %d\n", strcmp(s1, s2));
 
-	// s1 = "";
-	// s2 = "";
-	// printf("S1: \"%s\" S2 \"%s\"\n", s1, s2);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
-	// printf("   strcmp: %d\n", strcmp(s1, s2));
+	s1 = "";
+	s2 = "";
+	printf("\033[35m S1: \"%s\" S2 \"%s\"\n", s1, s2);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("\033[34m   strcmp: %d\n", strcmp(s1, s2));
 
-	// char *s3 = "_______________________________________________________________________________________________________________________________________________________________";
-	// char *s4 = "string largastring largastring largastring largastring largastring largastring largastring largastring largastring largastring largastring larga";
-	// printf("S1: \"%s\"\nS2 \"%s\"\n", s3, s4);
-	// printf("ft_strcmp: %d\n", ft_strcmp(s3, s4));
-	// printf("   strcmp: %d\n", strcmp(s3, s4));
-	// printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
+	char *s3 = "_______________________________________________________________________________________________________________________________________________________________";
+	char *s4 = "string largastring largastring largastring largastring largastring largastring largastring largastring largastring largastring largastring larga";
+	printf("\033[35m S1: \"%s\"\nS2 \"%s\"\n", s3, s4);
+	printf("\033[32m ft_strcmp: %d\n", ft_strcmp(s3, s4));
+	printf("\033[34m   strcmp: %d\n", strcmp(s3, s4));
+	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
-	// printf("\033[31m <---------------------------------TEST FT_WRITE---------------------------------------------->\n");
-	// char *towrite = "hello world\n";
-	// printf("ft_write: \n");
-	// ft_write(1, towrite, ft_strlen(towrite));
-	// printf("write: \n");
-	// write(1, towrite, ft_strlen(towrite));
-	// int fd = open(path, O_WRONLY | O_CREAT, 0644);
-	// printf("\nft_write: \n");
-	// ft_write(fd, towrite, ft_strlen(towrite));
-	// printf("\nwrite: \n");
-	// write(fd, towrite, ft_strlen(towrite));
-	// printf("\n\nft_write: \n");
-	// ft_write(18, towrite, ft_strlen(towrite));
-	// printf("write: \n");
-	// write(18, towrite, ft_strlen(towrite));
-	// close(fd);
-	// printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
+	printf("\033[31m <---------------------------------TEST FT_WRITE---------------------------------------------->\n");
+	char *towrite = " hello world\n";
+	printf("\033[35m ft_write: \n");
+	ft_write(1, towrite, ft_strlen(towrite));
+	printf("\033[35m write: \n");
+	write(1, towrite, ft_strlen(towrite));
+	printf("\n\033[33m ft_write: \n");
+	ft_write(0, towrite, ft_strlen(towrite));
+	printf("\n\033[33m write: \n");
+	write(0, towrite, ft_strlen(towrite));
+	printf("\n\033[34m ft_write: \n");
+	ft_write(18, towrite, ft_strlen(towrite));
+	printf("\033[34m write: \n");
+	write(18, towrite, ft_strlen(towrite));
+	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
 	// printf("\033[31m <---------------------------------TEST FT_READ---------------------------------------------->\n");
 	// fd = open(path, O_RDONLY);
