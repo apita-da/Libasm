@@ -6,7 +6,7 @@
 /*   By: apita-da <apita-da@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:53:07 by apita-da          #+#    #+#             */
-/*   Updated: 2021/05/24 14:47:03 by apita-da         ###   ########.fr       */
+/*   Updated: 2021/05/24 15:04:17 by apita-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int 	main (int argc, char **argv)
 {
 	char *path = "Makefile";
 
+	if (argc == 1)
+		path = "results.txt";
 	if (argc == 2)
 		path = argv[1];
 	printf("\033[31m <---------------------------------TEST FT_STRLEN---------------------------------------------->\n");
@@ -42,7 +44,7 @@ int 	main (int argc, char **argv)
 	printf("\n\033[35m ANTES   -> SRC: \"%s\" DST: \"%s\"\n", src, dst);
 	char * ret = ft_strcpy(dst, src);
 	printf("\n\033[32m DESPUÉS -> SRC: \"%s\" DST: \"%s\"\n", src, dst);
-	//char* sterro = "Bad file desciptor\n";
+	char* sterro = "Bad file desciptor\n";
 	printf("\033[34m RETURN: \"%s\"\n", ret);
 	free(src); 
 	free(dst);
@@ -102,43 +104,44 @@ int 	main (int argc, char **argv)
 	ft_write(1, towrite, ft_strlen(towrite));
 	printf("\033[35m write: \n");
 	write(1, towrite, ft_strlen(towrite));
+	int fd = open(path, O_WRONLY | O_CREAT, 0644);
 	printf("\n\033[33m ft_write: \n");
-	ft_write(0, towrite, ft_strlen(towrite));
+	ft_write(fd, towrite, ft_strlen(towrite));
 	printf("\n\033[33m write: \n");
-	write(0, towrite, ft_strlen(towrite));
+	write(fd, towrite, ft_strlen(towrite));
 	printf("\n\033[34m ft_write: \n");
 	ft_write(18, towrite, ft_strlen(towrite));
 	printf("\033[34m write: \n");
 	write(18, towrite, ft_strlen(towrite));
 	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
-	// printf("\033[31m <---------------------------------TEST FT_READ---------------------------------------------->\n");
-	// fd = open(path, O_RDONLY);
-	// char text[10] = "\0\0\0\0\0\0\0\0\0";
-	// int retu = ft_read(fd, text, 11);
-	// close(fd);
-	// printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text, retu);
-	// char text2[10] = "\0\0\0\0\0\0\0\0\0";
-	// retu = ft_read(45, text2, 11);
-	// printf("FT_READ: \"%s\"\nRETURN VAL: %s\n", text2, sterro);
-	// char text5[10] = "\0\0\0\0\0\0\0\0\0";
-	// retu = ft_read(0, text5, 11);
-	// printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
+	printf("\033[31m <---------------------------------TEST FT_READ---------------------------------------------->\n");
+	fd = open(path, O_RDONLY);
+	char text[10] = "\0\0\0\0\0\0\0\0\0";
+	int retu = ft_read(fd, text, 11);
+	close(fd);
+	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text, retu);
+	char text2[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = ft_read(45, text2, 11);
+	printf("FT_READ: \"%s\"\nRETURN VAL: %s\n", text2, sterro);
+	char text5[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = ft_read(0, text5, 11);
+	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
 
-	// fd = open(path, O_RDONLY);
-	// char text4[10] = "\0\0\0\0\0\0\0\0\0";
-	// retu = read(fd, text4, 11);
-	// printf("   READ: \"%s\"\nRETURN VAL: %d\n", text4, retu);
+	fd = open(path, O_RDONLY);
+	char text4[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = read(fd, text4, 11);
+	printf("   READ: \"%s\"\nRETURN VAL: %d\n", text4, retu);
 
-	// char text3[10] = "\0\0\0\0\0\0\0\0\0";
-	// retu = read(45, text2, 11);
-	// printf("   READ: \"%s\"\nRETURN VAL: %s\n", text3, strerror(errno));
+	char text3[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = read(45, text2, 11);
+	printf("   READ: \"%s\"\nRETURN VAL: %s\n", text3, strerror(errno));
 
-	// close(fd);
-	// char text6[10] = "\0\0\0\0\0\0\0\0\0";
-	// retu = ft_read(0, text6, 11);
-	// printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
-	// printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
+	close(fd);
+	char text6[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = ft_read(0, text6, 11);
+	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
+	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
 	// printf("\033[31m <---------------------------------TEST FT_STRDUP---------------------------------------------->\n");
 	
