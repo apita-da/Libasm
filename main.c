@@ -6,7 +6,7 @@
 /*   By: apita-da <apita-da@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:53:07 by apita-da          #+#    #+#             */
-/*   Updated: 2021/05/26 14:47:35 by apita-da         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:04:58 by apita-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int 	main (int argc, char **argv)
 	path = "hola.txt";
 	fd = open(path, O_RDONLY);
 	char text[10] = "\0\0\0\0\0\0\0\0\0";
-	int retu = ft_read(fd, text, 11);
+	int retu = ft_read(fd, text, 9);
 	printf("\033[35m FT_READ: \"%s\"\nRETURN VAL: %d\n", text, retu);
 	close(fd);
 	char text3[10] = "\0\0\0\0\0\0\0\0\0";
@@ -131,7 +131,7 @@ int 	main (int argc, char **argv)
 	
 	fd = open(path, O_RDONLY);
 	char text2[10] = "\0\0\0\0\0\0\0\0\0";
-	int retn = read(fd, text2, 11);
+	int retn = read(fd, text2, 9);
 	printf("\033[35m    READ: \"%s\"\nRETURN VAL: %d\n", text2, retn);
 	close(fd);
 	char text4[10] = "\0\0\0\0\0\0\0\0\0";
