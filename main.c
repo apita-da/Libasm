@@ -6,7 +6,7 @@
 /*   By: apita-da <apita-da@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:53:07 by apita-da          #+#    #+#             */
-/*   Updated: 2021/05/24 15:04:17 by apita-da         ###   ########.fr       */
+/*   Updated: 2021/05/26 14:47:35 by apita-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int 	main (int argc, char **argv)
 	printf("\n\033[35m ANTES   -> SRC: \"%s\" DST: \"%s\"\n", src, dst);
 	char * ret = ft_strcpy(dst, src);
 	printf("\n\033[32m DESPUÉS -> SRC: \"%s\" DST: \"%s\"\n", src, dst);
-	char* sterro = "Bad file desciptor\n";
 	printf("\033[34m RETURN: \"%s\"\n", ret);
 	free(src); 
 	free(dst);
@@ -99,7 +98,7 @@ int 	main (int argc, char **argv)
 	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
 	printf("\033[31m <---------------------------------TEST FT_WRITE---------------------------------------------->\n");
-	char *towrite = " hello world\n";
+	char *towrite = "hello world\n";
 	printf("\033[35m ft_write: \n");
 	ft_write(1, towrite, ft_strlen(towrite));
 	printf("\033[35m write: \n");
@@ -113,47 +112,49 @@ int 	main (int argc, char **argv)
 	ft_write(18, towrite, ft_strlen(towrite));
 	printf("\033[34m write: \n");
 	write(18, towrite, ft_strlen(towrite));
+	close(fd);
 	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
 	printf("\033[31m <---------------------------------TEST FT_READ---------------------------------------------->\n");
+	path = "hola.txt";
 	fd = open(path, O_RDONLY);
 	char text[10] = "\0\0\0\0\0\0\0\0\0";
 	int retu = ft_read(fd, text, 11);
+	printf("\033[35m FT_READ: \"%s\"\nRETURN VAL: %d\n", text, retu);
 	close(fd);
-	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text, retu);
-	char text2[10] = "\0\0\0\0\0\0\0\0\0";
-	retu = ft_read(45, text2, 11);
-	printf("FT_READ: \"%s\"\nRETURN VAL: %s\n", text2, sterro);
+	char text3[10] = "\0\0\0\0\0\0\0\0\0";
+	retu = ft_read(45, text3, 11);
+	printf("\033[32m FT_READ: \"%s\"\nRETURN VAL: %s\n", text3, strerror(errno));
 	char text5[10] = "\0\0\0\0\0\0\0\0\0";
 	retu = ft_read(0, text5, 11);
-	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
-
+	printf("\033[33m FT_READ: \"%s\"\nRETURN VAL: %d\n", text5, retu);
+	
 	fd = open(path, O_RDONLY);
-	char text4[10] = "\0\0\0\0\0\0\0\0\0";
-	retu = read(fd, text4, 11);
-	printf("   READ: \"%s\"\nRETURN VAL: %d\n", text4, retu);
-
-	char text3[10] = "\0\0\0\0\0\0\0\0\0";
-	retu = read(45, text2, 11);
-	printf("   READ: \"%s\"\nRETURN VAL: %s\n", text3, strerror(errno));
-
+	char text2[10] = "\0\0\0\0\0\0\0\0\0";
+	int retn = read(fd, text2, 11);
+	printf("\033[35m    READ: \"%s\"\nRETURN VAL: %d\n", text2, retn);
 	close(fd);
+	char text4[10] = "\0\0\0\0\0\0\0\0\0";
+	retn = read(45, text4, 11);
+	printf("\033[32m    READ: \"%s\"\nRETURN VAL: %s\n", text4, strerror(errno));
 	char text6[10] = "\0\0\0\0\0\0\0\0\0";
-	retu = ft_read(0, text6, 11);
-	printf("FT_READ: \"%s\"\nRETURN VAL: %d\n", text2, retu);
+	retn = read(0, text6, 11);
+	printf("\033[33m READ: \"%s\"\nRETURN VAL: %d\n", text6, retn);
+	
 	printf("\n\033[31m <-------------------------------------------------------------------------------------------->\n");
 	
-	// printf("\033[31m <---------------------------------TEST FT_STRDUP---------------------------------------------->\n");
+	printf("\033[31m <---------------------------------TEST FT_STRDUP---------------------------------------------->\n");
 	
-	// char *new;
-	// char *old = "copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string ";
-	// new = ft_strdup(old);
-	// printf("NEW: \"%s\"\n", new);
-	// free(new);
-	// printf("freed string: OK\n");
-	// new = ft_strdup("");
-	// printf("NEW: \"%s\"\n", new);
-	// free(new);
-	// printf("freed string: OK\n");
+	char *new;
+	char *old = "copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string copiar esta string ";
+	printf("\033[35m OLD: \"%s\"\n", old);
+	new = ft_strdup(old);
+	printf("\033[33m NEW: \"%s\"\n", new);
+	free(new);
+	printf("\033[34m freed string: OK\n");
+	new = ft_strdup("");
+	printf("\033[33m NEW: \"%s\"\n", new);
+	free(new);
+	printf("\033[34m freed string: OK\n");
 	printf("\n\033[32m <---------------------------------THE END!!-------------------------------------------------->\n");
 }
